@@ -65,8 +65,40 @@ wait4 (man 2 wait4)
 write (man 2 write)GitHub
 # Github 
 There should be one project repository per group. If you and your partner have a repository with the same name in both your accounts, you risk a 0% score. Add your partner as a collaborator.
-# Output
+# How to Compile
+To compile this shell, you can use the following command:
 
-Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
-The only difference is when you print an error, the name of the program must be equivalent to your argv[0] (See below)
+# c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+This will compile all .c files in the directory into an executable file named hsh.
+
+# How to Use
+To run the shell in interactive mode, simply execute the hsh command:
+
+# shell
+
+$ ./hsh
+You will see a prompt ($ ) indicating that the shell is ready to receive commands. You can type in a command and press Enter to execute it.
+
+To run the shell in non-interactive mode, you can pipe commands into it using echo or cat, like so:
+
+# shell
+
+$ echo "/bin/ls" | ./hsh
+This will execute the ls command in the /bin directory.
+
+# Functionality
+The shell can execute simple commands with or without arguments. It can also handle the PATH variable to find executables in directories specified in the PATH.
+
+If an executable is not found, the shell will print an error message and return to the prompt.
+
+The shell can handle the "end of file" condition (Ctrl+D) and will exit gracefully.
+
+# Future Work
+This shell is a simple implementation and has limited functionality. In the future, we could add more features like pipes, redirection, and advanced argument handling.
+
+# Acknowledgments
+Holberton School - Project resources and support.
+
+
 
