@@ -63,7 +63,7 @@ waitpid (man 2 waitpid)
 wait3 (man 2 wait3)
 wait4 (man 2 wait4)
 write (man 2 write)GitHub
-# Github 
+# Github
 There should be one project repository per group. If you and your partner have a repository with the same name in both your accounts, you risk a 0% score. Add your partner as a collaborator.
 # How to Compile
 To compile this shell, you can use the following command:
