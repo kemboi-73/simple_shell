@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 int stat(const char *pathname, struct stat *statbuf);
+int _putchar(char c);
 void execmd(char **argv);
 char *get_location(char *command);
 
