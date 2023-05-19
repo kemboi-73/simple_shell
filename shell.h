@@ -13,5 +13,12 @@ int _putchar(char c);
 void execmd(char **argv);
 char *get_location(char *command);
 
+
+
+int isShellInteractive(info_t *info);
+int isDelimiter(char c, char *delim);
+int isAlphabetic(int c);
+int convertStringToInt(char *s);
+
 #endif
 
