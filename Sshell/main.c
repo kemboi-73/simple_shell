@@ -1,19 +1,24 @@
-#include "main.h"
+#include "shell.h"
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
-int main(int arg_c, char **argv)
+int main(void)
 {
 	char *full_command, *lineptr = NULL, *cp_command = NULL;
 	size_t n = 0;
 	ssize_t nchar_read;
 	const char *delim = " \n";
 	char *token;
+	char **argv;
 	int j;
 	int num_token = 0;
 
-	(void)arg_c;
-	printf("$ ");
-	return(0);
+	(void)argv;
 
+	printf("$ ");
+
+	
 	nchar_read = getline(&lineptr, &n, stdin);
 	
 	cp_command = malloc(sizeof(char) * nchar_read);
@@ -26,8 +31,8 @@ int main(int arg_c, char **argv)
 	strcpy(cp_command, full_command);
 	if (nchar_read == -1)
         {
-                printf("Exiting shell....\n");
-                return(-1);
+		printf("Exiting shell....\n");
+		return(-1);
         }
 	else
 	{
@@ -49,6 +54,7 @@ int main(int arg_c, char **argv)
 	{
 		argv[j] = malloc(sizeof(char) * strlen(token));
 		strcpy(argv[j], token);
+		strcat(full_command, " ");
 
 		token = strtok(NULL, delim);
 	}

@@ -11,7 +11,6 @@ char *get_location(char *cmd)
 {
 char *path, *copy_path, *path_tkn, *file_path;
 int cmd_len, dir_len;
-struct stat buffer;
 
 path = getenv("PATH");
 if (path)

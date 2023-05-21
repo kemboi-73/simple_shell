@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-int main(int arg_c, char **argv);
+int main(void);
 
 
 #endif
