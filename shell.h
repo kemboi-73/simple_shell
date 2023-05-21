@@ -7,6 +7,10 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdio.h>
+typedef struct {
+int readfd;
+
+} info_t;
 
 /*shell.c prototypes*/
 int stat(const char *pathname, struct stat *statbuf);
