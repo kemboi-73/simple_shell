@@ -14,6 +14,7 @@
  */
 int main(int argc, char **argv)
 {
+
 	char *prompt = "(Sshell)$ ";
 	char *lineptr = NULL, *copy_lineptr = NULL;
 	size_t n = 0;
@@ -23,7 +24,9 @@ int main(int argc, char **argv)
 	char *token;
 	char **cmd_args = NULL;
 
-	(void)argc;
+	(void)argv;
+        (void)argc;
+
 
 	while (1)
 	{
