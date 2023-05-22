@@ -20,8 +20,9 @@ int readfd;
 int stat(const char *pathname, struct stat *statbuf);
 int _putchar(char c);
 void execmd(char **argv);
-char *get_location(char *command);
 
+int main(int argc, char **argv);
+char *get_location(char *cmd);
 
 /*all prototypes of command_location.c*/
 int isShellInteractive(info_t *info);
