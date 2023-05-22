@@ -7,7 +7,11 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdio.h>
-typedef struct {
+#include <fcntl.h>
+#include <dirent.h>
+#include <signal.h>
+typedef struct
+{
 int readfd;
 
 } info_t;
@@ -25,5 +29,12 @@ int isDelimiter(char c, char *delim);
 int isAlphabetic(int c);
 int convertStringToInt(char *s);
 
+/*prototypes of shell_builtins.c*/
+int builtin_exit(void);
+int builtin_env(char **env);
+
+/*proto of command_parser.c*/
+char **parse_command(char *command);
+void free_tokens(char **tokens);
 #endif
 
