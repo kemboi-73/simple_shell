@@ -6,85 +6,84 @@
 #include <unistd.h>
 
 /**
- * main - main function of code
- * @argc: argument parsed
- * @argv: arguments
+ * main - Entry point of the simple shell program
+ * @argc: Argument count
+ * @argv: Array of arguments
  *
- * Return: 0
+ * Return: 0 on success, -1 on failure
  */
-
 int main(int argc, char **argv)
 {
 	char *prompt = "(Sshell)$ ";
-	char *lineptr = NULL;
+	char *lineptr = NULL, *copy_lineptr = NULL;
 	size_t n = 0;
 	ssize_t checkread;
-	const char *delim = " \n";
-	char *copy_lineptr = strdup(lineptr);
-	int sum_token = 0;
-	char *token = strtok(lineptr, delim);
-	char **arguments = malloc(sizeof(char *) * (sum_token + 1));
-	int i = 0;
+	const char *delin = " \n";
+	int sum_token = 0, i;
+	char *token;
+	char **cmd_args = NULL;
 
-	
 	(void)argc;
-	(void)argv;
 
 	while (1)
 	{
 		printf("%s", prompt);
 
 		checkread = getline(&lineptr, &n, stdin);
-		
 		if (checkread == -1)
 		{
-			perror("Error reading input");
-			exit(EXIT_FAILURE);
+			printf("Error\n");
+			return (-1);
 		}
 
+		copy_lineptr = malloc(sizeof(char) * checkread);
 		if (copy_lineptr == NULL)
 		{
-			perror("Allocation error");
-			exit(EXIT_FAILURE);
+			printf("Allocation error\n");
+			return (-1);
 		}
+		strcpy(copy_lineptr, lineptr);
 
-
+		token = strtok(lineptr, delin);
 		while (token != NULL)
 		{
 			sum_token++;
-			token = strtok(NULL, delim);
+			token = strtok(NULL, delin);
 		}
+		sum_token++;
 
-		if (arguments == NULL)
+		cmd_args = malloc(sizeof(char *) * sum_token);
+		if (cmd_args == NULL)
 		{
-			perror("Allocation error");
+			printf("Allocation error\n");
 			free(copy_lineptr);
-			exit(EXIT_FAILURE);
+			return (-1);
 		}
 
-		token = strtok(copy_lineptr, delim);
-
-		while (token != NULL)
+		token = strtok(copy_lineptr, delin);
+		for (i = 0; token != NULL; i++)
 		{
-			arguments[i] = strdup(token);
-			if (arguments[i] == NULL)
+			cmd_args[i] = malloc(sizeof(char) * (strlen(token) + 1));
+			if (cmd_args[i] == NULL)
 			{
-				perror("Allocation error");
+				printf("Allocation error\n");
 				free(copy_lineptr);
-				free(arguments);
-				exit(EXIT_FAILURE);
+				free(cmd_args);
+				return (-1);
 			}
-
-			token = strtok(NULL, delim);
-			i++;
+			strcpy(cmd_args[i], token);
+			token = strtok(NULL, delin);
 		}
-		arguments[i] = NULL;
+		cmd_args[i] = NULL;
 
-		execmd(arguments);
+		execmd(cmd_args);
 
+		/* Cleanup memory */
+		free(cmd_args);
 		free(copy_lineptr);
-		free(arguments);
 	}
-	free(lineptr);
+
+	free(lineptr);/* frees the lineptr memory */
 	return (0);
 }
+
