@@ -9,6 +9,11 @@ void execmd(char **argv)
 {
 	char *command = NULL;
 	char *actual_cmd = NULL;
+	int status;
+
+	pid_t pid;
+	
+	pid = fork();
 
 	if (argv && argv[0])
 	{
@@ -19,7 +24,6 @@ void execmd(char **argv)
 			fprintf(stderr, "Command not found: %s\n", command);
 			exit(EXIT_FAILURE);
 		}
-		pid_t pid = fork();
 		if (pid == -1)
 		{
 			perror("fork failed");
@@ -35,7 +39,6 @@ void execmd(char **argv)
 		}
 		else
 		{
-			int status;
 			if (waitpid(pid, &status, 0) == -1)
 			{
 				perror("waitpid failed");
@@ -43,7 +46,6 @@ void execmd(char **argv)
 			}
 			if (WIFEXITED(status))
 			{
-				int exit_status = WEXITSTATUS(status);
 			}
 		}
 	}
