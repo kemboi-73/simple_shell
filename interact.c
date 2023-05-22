@@ -71,4 +71,3 @@ int convertStringToInt(char *s)
 		result = output;
 	return (result);
 }
-

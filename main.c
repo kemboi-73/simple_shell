@@ -1,90 +1,53 @@
 #include "shell.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
 /**
- * main - main function of code
- * @argc: argument parsed
+ * main - code to pass betty
+ * @a:  argument counts
  * @argv: arguments
  *
- * Return: 0
+ * Return: 0(success)
  */
 
-int main(int argc, char **argv)
+int main(int a, char **argv)
 {
-	char *prompt = "(Sshell)$ ";
-	char *lineptr = NULL;
+	char *prompt = "(simple_shell)$ ";
+	char *lineptr = NULL, *copy_lineptr = NULL;
 	size_t n = 0;
 	ssize_t checkread;
-	const char *delim = " \n";
-	char *copy_lineptr = strdup(lineptr);
-	int sum_token = 0;
-	char *token = strtok(lineptr, delim);
-	char **arguments = malloc(sizeof(char *) * (sum_token + 1));
-	int i = 0;
+	const char *delin = " \n";
+	int sum_token = 0, i;
+	char *token;
 
-	
-	(void)argc;
-	(void)argv;
-
+	(void)a;
 	while (1)
 	{
-		printf("%s", prompt);
-
-		checkread = getline(&lineptr, &n, stdin);
-		
-		if (checkread == -1)
-		{
-			perror("Error reading input");
-			exit(EXIT_FAILURE);
-		}
-
-		if (copy_lineptr == NULL)
-		{
-			perror("Allocation error");
-			exit(EXIT_FAILURE);
-		}
-
-
-		while (token != NULL)
-		{
-			sum_token++;
-			token = strtok(NULL, delim);
-		}
-
-		if (arguments == NULL)
-		{
-			perror("Allocation error");
-			free(copy_lineptr);
-			exit(EXIT_FAILURE);
-		}
-
-		token = strtok(copy_lineptr, delim);
-
-		while (token != NULL)
-		{
-			arguments[i] = strdup(token);
-			if (arguments[i] == NULL)
-			{
-				perror("Allocation error");
-				free(copy_lineptr);
-				free(arguments);
-				exit(EXIT_FAILURE);
-			}
-
-			token = strtok(NULL, delim);
-			i++;
-		}
-		arguments[i] = NULL;
-
-		execmd(arguments);
-
-		free(copy_lineptr);
-		free(arguments);
-	}
+	printf("%s", prompt);
+	checkread = getline(&lineptr, &n, stdin);
+	if (checkread == -1)
+	{
+		printf("Error\n");
+		return (-1); }
+	copy_lineptr = malloc(sizeof(char) * checkread);
+	if (copy_lineptr == NULL)
+	{
+		printf("allocation error");
+		return (-1); }
+	strcpy(copy_lineptr, lineptr);
+	token = strtok(lineptr, delin);
+	while (token != NULL)
+	{
+		sum_token++;
+		token = strtok(NULL, delin); }
+	sum_token++;
+	argv = malloc(sizeof(char *) * sum_token);
+	token = strtok(copy_lineptr, delin);
+	for (i = 0; token != NULL; i++)
+	{
+		argv[i] = malloc(sizeof(char) * strlen(token));
+		strcpy(argv[i], token);
+		token = strtok(NULL, delin); }
+	argv[i] = NULL;
+	execmd(argv); }
 	free(lineptr);
-	return (0);
-}
+	free(copy_lineptr);
+	return (0); }
