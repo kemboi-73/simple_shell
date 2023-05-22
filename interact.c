@@ -19,9 +19,9 @@ int isShellInteractive(info_t *info)
 
 int isDelimiter(char c, char *delim)
 {
-	while (*delim)	
+	while (*delim)
 	{
-		if (*delim++ == c)
+	if (*delim++ == c)
 	return (1);
 	}
 	return (0);
@@ -60,10 +60,10 @@ int convertStringToInt(char *s)
 	{
 		flag = 1;
 	output *= 10;
- 		output += (s[i] - '0');
+	output += (s[i] - '0');
 	}
-	else if (flag == 1)
-			flag = 2;
+else if (flag == 1)
+	flag = 2;
 	}
 	if (sign == -1)
 		result = -output;

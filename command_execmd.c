@@ -12,7 +12,7 @@ void execmd(char **argv)
 	int status;
 
 	pid_t pid;
-	
+
 	pid = fork();
 
 	if (argv && argv[0])
@@ -42,11 +42,8 @@ void execmd(char **argv)
 			if (waitpid(pid, &status, 0) == -1)
 			{
 				perror("waitpid failed");
-				exit(EXIT_FAILURE);
-			}
+				exit(EXIT_FAILURE); }
 			if (WIFEXITED(status))
 			{
 			}
-		}
-	}
-}
+		} } }

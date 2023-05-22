@@ -11,7 +11,6 @@
 #include <dirent.h>
 #include <signal.h>
 #include <sys/wait.h>
-
 typedef struct
 {
 int readfd;
