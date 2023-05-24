@@ -35,8 +35,10 @@ char *_strchr(char *s, char c);
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
 /*ts*/
-
+void print_env(void);
 int _puts(char *str);
+extern char **environ;
+size_t _strlen(char *s);
 int print_string(char *str);
 /*shell.c prototypes*/
 int stat(const char *pathname, struct stat *statbuf);
