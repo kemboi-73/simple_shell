@@ -22,10 +22,11 @@ int readfd;
 
 } info_t;
 
-typedef struct list_s {
-    char *name;
-    char *value;
-    struct list_s *next;
+typedef struct list_s
+{
+char *name;
+char *value;
+struct list_s *next;
 } list_t;
 /*pro of exit.c*/
 char *_strncpy(char *dest, char *src, int n);
@@ -49,7 +50,7 @@ char *_getenv(char *name);
 
 
 void handl_ctrlc(int signal);
-void  handle_signale();
+
 
 char  **_tokenize(char *command, char *delim);
 void ourexit(char *exit1, char **mpath, char **arr, char *args, int exit_stat);
