@@ -32,6 +32,13 @@ typedef struct list_s {
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
 
+int add_node_end(list_t **head, const char *name, const char *value);
+int _unsetenv(list_t *env_list, const char *name);
+int _setenv(list_t *env_list, const char *name, const char *value, int ow);
+void print_env(list_t *env_list);
+char *_getenv(list_t *env_list, char *name);
+list_t *create_env(char **env, list_t *env_list);
+
 /*shell.c prototypes*/
 int stat(const char *pathname, struct stat *statbuf);
 int _putchar(char c);
