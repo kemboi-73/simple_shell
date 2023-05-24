@@ -23,7 +23,7 @@ list_t *create_env(char **env, list_t *env_list)
 		name = _strtok(env[i], "=");
 		value = _strtok(NULL, "\n");
 
-		if (add_node_end(&env_list, name, value) == NULL)
+		if (add_node_end(&env_list, name, value) == 0)
 		{
 			return (NULL);
 		}
@@ -95,6 +95,7 @@ int _setenv(list_t *env_list, const char *name, const char *value, int ow)
 	int index;
 	int find_name(list_t *env_list, const char *name);
 	int update_value(list_t *env_list, int index, const char *value);
+	int is_in_str(const char *str, char c);
 
 	if (name == NULL || value == NULL || is_in_str(name, '='))
 		return (-1);
@@ -105,7 +106,7 @@ int _setenv(list_t *env_list, const char *name, const char *value, int ow)
 	/* if name not in list */
 	if (index == -1)
 	{
-		if (add_node_end(&env_list, name, value) == NULL)
+		if (add_node_end(&env_list, name, value) == 0)
 			return (-1);
 
 		return (0);
