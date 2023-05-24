@@ -22,6 +22,16 @@ int readfd;
 
 } info_t;
 
+typedef struct list_s {
+    char *name;
+    char *value;
+    struct list_s *next;
+} list_t;
+
+/*prototypes of env*/
+char *_strtok(char *str, const char *delim);
+int _strcmp(const char *s1, const char *s2);
+
 /*shell.c prototypes*/
 int stat(const char *pathname, struct stat *statbuf);
 int _putchar(char c);
