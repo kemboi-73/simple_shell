@@ -1,150 +1,49 @@
 #include "shell.h"
-#include <string.h>
 
 /**
- * create_env - creates a list of environment variables
- * @env: array of environment variables
- * @env_list: list of environment variables
+ * _putchar - write the character c to stdout
+ * @c: The character to print
  *
- * Return: new head of list. Otherwise NULL
+ * Return: On Success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-list_t *create_env(char **env, list_t *env_list)
+int _putchar(char c)
 {
-	unsigned int i;
-	char *name, *value;
-
-	if (env == NULL)
-	{
-		return (NULL);
-	}
-
-	for (i = 0; env[i]; i++)
-	{
-		name = _strtok(env[i], "=");
-		value = _strtok(NULL, "\n");
-
-		if (add_node_end(&env_list, name, value) == 0)
-		{
-			return (NULL);
-		}
-	}
-
-	return (env_list);
+	return (write(1, &c, 1));
 }
 
 /**
- * _getenv - gets the value of an environment variable
- * @env_list: list of environment variables
- * @name: environment variable
+ * _puts - print string
+ * @str: pointer to string
  *
- * Return: value of name. Otherwise NULL
+ * Return: return 1 On success
+ * On error, return -1
  */
-char *_getenv(list_t *env_list, char *name)
+int _puts(char *str)
 {
-	list_t *trav = env_list;
+	size_t count = (size_t)strlen(str);
+	int new_line = '\n';
 
-	if (name == NULL)
-	{
-		return (NULL);
-	}
-
-	while (trav && _strcmp(trav->name, name))  /* check each node for a match */
-	{
-		trav = trav->next;
-	}
-
-	if (trav)
-		return (trav->value);
-
-	return (NULL);
-}
-
-/**
- * print_env - prints all the environment variables
- * @env_list: list of environment variables
- */
-void print_env(list_t *env_list)
-{
-	list_t *trav = env_list;
-
-	while (trav != NULL)
-	{
-		/*printf("[%d] ", trav->index);*/
-		/*printf("%s=%s\n", trav->name, trav->value);*/
-
-		write(STDOUT_FILENO, trav->name, strlen(trav->name) + 1);
-		write(STDOUT_FILENO, "=", 2);
-		write(STDOUT_FILENO, trav->value, strlen(trav->value) + 1);
-		write(STDOUT_FILENO, "\n", 2);
-
-		trav = trav->next;
-	}
-}
-
-/**
- * _setenv - changes or adds an environment variable
- * @env_list: list of environment variables
- * @name: name of environment variable
- * @value: value of environment variable
- * @ow: overwrite flag
- *
- * Return: 0 if successful. Otherwise -1
- */
-int _setenv(list_t *env_list, const char *name, const char *value, int ow)
-{
-	int index;
-	int find_name(list_t *env_list, const char *name);
-	int update_value(list_t *env_list, int index, const char *value);
-	int is_in_str(const char *str, char c);
-
-	if (name == NULL || value == NULL || is_in_str(name, '='))
+	if (write(1, str, count) == -1)
 		return (-1);
 
-	/* find index of node with name */
-	index = find_name(env_list, name);
+	if (write(1, &new_line, 1) == -1)
+		return (-1);
 
-	/* if name not in list */
-	if (index == -1)
-	{
-		if (add_node_end(&env_list, name, value) == 0)
-			return (-1);
-
-		return (0);
-	}
-
-	/* update node at index */
-	if (ow)
-		return (update_value(env_list, index, value));
-
-	return (0);
+	return (1);
 }
 
 /**
- * _unsetenv - deletes the variable name from the environment
- * @env_list: list of environment variables
- * @name: name of variable to delete
- *
- * Return: 0 success. -1 otherwise
+ * print_string - print string
+ * @str: pointer to string
+ * Return: Number of string
  */
-int _unsetenv(list_t *env_list, const char *name)
+int print_string(char *str)
 {
-	int index;
-	int find_name(list_t *env_list, const char *name);
-	int delete_node_index(list_t **head, unsigned int index);
+	int i;
 
-	if (name == NULL)
-		return (-1);
+	for (i = 0; *(str + i) != '\0'; i++)
+		_putchar(*(str + i));
 
-	/* find index of node to delete */
-	index = find_name(env_list, name);
-
-	/* if name is not in the list */
-	if (index == -1)
-		return (0);
-
-	/* delete node at index */
-	if (delete_node_index(&env_list, index) == -1)
-		return (-1);
-
-	return (0);
+	return (i);
 }
