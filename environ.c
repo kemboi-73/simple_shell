@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <string.h>
 
 /**
  * create_env - creates a list of environment variables
@@ -71,9 +72,9 @@ void print_env(list_t *env_list)
 		/*printf("[%d] ", trav->index);*/
 		/*printf("%s=%s\n", trav->name, trav->value);*/
 
-		write(STDOUT_FILENO, trav->name, _strlen(trav->name) + 1);
+		write(STDOUT_FILENO, trav->name, strlen(trav->name) + 1);
 		write(STDOUT_FILENO, "=", 2);
-		write(STDOUT_FILENO, trav->value, _strlen(trav->value) + 1);
+		write(STDOUT_FILENO, trav->value, strlen(trav->value) + 1);
 		write(STDOUT_FILENO, "\n", 2);
 
 		trav = trav->next;
@@ -92,6 +93,8 @@ void print_env(list_t *env_list)
 int _setenv(list_t *env_list, const char *name, const char *value, int ow)
 {
 	int index;
+	int find_name(list_t *env_list, const char *name);
+	int update_value(list_t *env_list, int index, const char *value);
 
 	if (name == NULL || value == NULL || is_in_str(name, '='))
 		return (-1);
@@ -125,6 +128,8 @@ int _setenv(list_t *env_list, const char *name, const char *value, int ow)
 int _unsetenv(list_t *env_list, const char *name)
 {
 	int index;
+	int find_name(list_t *env_list, const char *name);
+	int delete_node_index(list_t **head, unsigned int index);
 
 	if (name == NULL)
 		return (-1);
