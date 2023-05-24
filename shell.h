@@ -1,6 +1,11 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#define BUFFER_SIZE 1024
+#define MAX_COMMAND_LEN 1024
+#define MAX_TOKENS 64
+#define DELIMITER " \t\n"
+
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdlib.h>
