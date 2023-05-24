@@ -38,4 +38,7 @@ int builtin_env(char **env);
 /*proto of command_parser.c*/
 char **parse_command(char *command);
 void free_tokens(char **tokens);
+
+/*prototype of cd_function.c*/
+int cd(char *directory);
 #endif
