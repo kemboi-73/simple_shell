@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * main -entry point to the program
+ * main - entry point to the program
  * @argc: Argument count
  * @argv: Array of arguments
  *Return: 0 on success, -1 on failure
@@ -9,11 +9,13 @@ int main(int argc, char **argv)
 {	char *prompt = "(Sshell)$ ";
 	char *lineptr = NULL, *copy_lineptr = NULL;
 	size_t n = 0;
-	ssize_t checkread, const char *delin = " \n";
+	ssize_t checkread;
+	char *delin = " \n";
 	int sum_token = 0, i;
 	char *token;
 	char **cmd_args = NULL;
-	(void)argv, (void)argc;
+	(void)argv;
+	(void)argc;
 	while (1)
 	{ printf("%s", prompt), checkread = getline(&lineptr, &n, stdin);
 		if (checkread == -1)
