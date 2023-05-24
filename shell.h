@@ -27,7 +27,10 @@ typedef struct list_s {
     char *value;
     struct list_s *next;
 } list_t;
-
+/*pro of exit.c*/
+char *_strncpy(char *dest, char *src, int n);
+char *_strncat(char *dest, char *src, int n);
+char *_strchr(char *s, char c);
 /*prototypes of env*/
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
