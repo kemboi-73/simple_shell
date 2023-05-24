@@ -37,7 +37,7 @@ int _strcmp(const char *s1, const char *s2);
 /*ts*/
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
-
+void prompt(void);
 
 
 
