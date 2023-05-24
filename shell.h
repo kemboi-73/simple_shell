@@ -46,7 +46,14 @@ int _strcmp(const char *s1, const char *s2);
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
 void prompt(void);
+void print_env(void);
+/*testing stuff*/
 
+char *read_cmd(void);
+
+int execute_cmd(char *cmd);
+void execute_child(char **input);
+/*testing stuff*/
 char *serach_in_path(char *str);
 char **get_path();
 char *full_path(char *dir, char *cmd);
