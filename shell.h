@@ -35,11 +35,17 @@ char *_strchr(char *s, char c);
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
 /*ts*/
+char *build_path(char *dir, char *command);
+char *find_command(char *command);
+
+
+
+
+
 void handl_ctrlc(int signal);
 void  handle_signale();
 
 char  **_tokenize(char *command, char *delim);
-
 void ourexit(char *exit1, char **mpath, char **arr, char *args, int exit_stat);
 size_t _strlen(char *s);
 int print_string(char *str);
