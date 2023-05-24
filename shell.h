@@ -39,6 +39,12 @@ char *build_path(char *dir, char *command);
 char *find_command(char *command);
 void prompt(void);
 
+char *serach_in_path(char *str);
+char **get_path();
+char *full_path(char *dir, char *cmd);
+void print_env(void);
+char *_getenv(char *name);
+
 
 
 
