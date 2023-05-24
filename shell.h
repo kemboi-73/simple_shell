@@ -35,7 +35,8 @@ char *_strchr(char *s, char c);
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
 /*ts*/
-
+void handl_ctrlc(int signal);
+void  handle_signale();
 
 size_t _strlen(char *s);
 int print_string(char *str);
