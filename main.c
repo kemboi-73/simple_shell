@@ -46,8 +46,5 @@ token = strtok(copy_lineptr, delin);
 		} cmd_args[i] = NULL;
 execmd(cmd_args), free(cmd_args), free(copy_lineptr); }
 	free(lineptr);
-	free(cmd_args);
-	free(copy_lineptr);
 	return (0);
 }
-
