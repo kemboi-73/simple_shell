@@ -16,12 +16,19 @@
 #include <dirent.h>
 #include <signal.h>
 #include <sys/wait.h>
+
 typedef struct
 {
 int readfd;
 
 } info_t;
-
+/**
+ * struct list_s - Represents a node in a linked list.
+ * struct - a short info about struct
+ * @name: Pointer to the name string.
+ * @value: Pointer to the value string.
+ * @next: Pointer to the next node in the list.
+ */
 typedef struct list_s
 {
 char *name;
