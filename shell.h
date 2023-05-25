@@ -102,6 +102,17 @@ void free_tokens(char **tokens);
 /*prototype of cd_function.c*/
 int cd(char *directory);
 
+/* new */
+#ifndef SHELL_H
+#define SHELL_H
+void print_prompt(void);
+int prompt(char **line);
+char **split_line(char *line);
+int _atoi(char *str);
+void free_args(char **args);
+int execute(char **args);
+
+#endif /* SHELL_H */
 
 
 /* environ.c */
