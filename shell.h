@@ -43,14 +43,22 @@ char *_strchr(char *s, char c);
 char *_strtok(char *str, const char *delim);
 int _strcmp(const char *s1, const char *s2);
 /*ts*/
+void free_all(char *buffer, char *p, char **arg);
+void freearg(char **arg);
+
+
+
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
 void prompt(void);
 void print_env(void);
 /*testing stuff*/
+int is_command(char *filename);
+char *create_path(char *dir, char *filename);
+char *get_full_path(char *filename, list_t *path_list);
+char *get_full_name(char *name, list_t *env_list);
 
 char *read_cmd(void);
-
 int execute_cmd(char *cmd);
 void execute_child(char **input);
 /*testing stuff*/
