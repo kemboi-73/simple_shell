@@ -81,7 +81,7 @@ int print_string(char *str);
 /*shell.c prototypes*/
 int stat(const char *pathname, struct stat *statbuf);
 int _putchar(char c);
-void execmd(char **argv);
+int execmd(char **argv);
 
 int main(int argc, char **argv);
 char *get_location(char *cmd);

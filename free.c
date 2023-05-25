@@ -4,15 +4,14 @@
  * freearg - function that frees the memory allocated for an array of strings
  * @arg: array of pointers to character
  */
-void freearg(char **arg) {
-    int i;
+void freearg(char **arg)
+{
+	int i;
 
-    for (i = 0; arg[i] != NULL; i++) {
-        free(arg[i]);
-    }
+	for (i = 0; arg[i] != NULL; i++)
+		free(arg[i]);
 
-
-    free(arg);
+	free(arg);
 }
 
 /**
@@ -21,9 +20,9 @@ void freearg(char **arg) {
  * @p: pointer to character
  * @arg: array of pointers to character
  */
-void free_all(char *buffer, char *p, char **arg) {
-    free(buffer);
-    free(p);
-    freearg(arg);
+void free_all(char *buffer, char *p, char **arg)
+{
+	free(buffer);
+	free(p);
+	freearg(arg);
 }
-

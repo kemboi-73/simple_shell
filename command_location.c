@@ -26,11 +26,13 @@ if (path)
 		if (access(file_path, F_OK) == 0)
 		{
 			free(copy_path);
+			free(file_path);
 			return (file_path);
 		}
 		else
 		{
 			free(file_path);
+			free(copy_path);
 			path_tkn = strtok(NULL, ":");
 		}
 	}

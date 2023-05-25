@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		copy_lineptr = malloc(sizeof(char) * checkread);
 		if (copy_lineptr == NULL)
 		{ printf("Allocation error\n");
-			free(lineptr);
+			/*free(lineptr);*/
 			return (-1);
 		}
 		strcpy(copy_lineptr, lineptr), token = strtok(lineptr, delin);
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 		cmd_args = malloc(sizeof(char *) * sum_token);
 		if (cmd_args == NULL)
 		{ printf("Allocation error\n");
-			free(copy_lineptr);
+			/*free(copy_lineptr);*/
 			free(lineptr);
 			return (-1);
 			break; }
@@ -47,18 +47,22 @@ int main(int argc, char **argv)
 		if (cmd_args != NULL)
 			for (i = 0; token != NULL; i++)
 			{ cmd_args[i] = malloc(sizeof(char) * (strlen(token) + 1));
-		if (cmd_args[i] == NULL)
-		{ printf("Allocation error\n");
-		free(copy_lineptr);
-		free(cmd_args[i]);
-		free(lineptr);
-		cmd_args = NULL;
-		return (-1);
-		} strcpy(cmd_args[i], token), token = strtok(NULL, delin);
+				free(token);
+				free (cmd_args);
+if (cmd_args[i] == NULL)
+	{ printf("Allocation error\n");
+	free(copy_lineptr);
+	free(cmd_args[i]);
+	free(lineptr);
+	cmd_args = NULL;
+	return (-1);
+	} strcpy(cmd_args[i], token), token = strtok(NULL, delin);
 	} cmd_args[i] = NULL;
 		execmd(cmd_args);
-		free(cmd_args);
-		free(copy_lineptr); }
+		/*free(cmd_args);*/
+		free(copy_lineptr);
 	free(lineptr);
+	lineptr = NULL;
+	}
 	return (0);
 }

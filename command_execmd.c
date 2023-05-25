@@ -5,7 +5,7 @@
  *
  * Return: void
  */
-void execmd(char **argv)
+int execmd(char **argv)
 {
 	char *command = NULL;
 	char *actual_cmd = NULL;
@@ -45,5 +45,10 @@ void execmd(char **argv)
 				exit(EXIT_FAILURE); }
 			if (WIFEXITED(status))
 			{
+				free(actual_cmd);
+				free(command);
 			}
-		} } }
+
+				}
+       	}return (0);
+}
