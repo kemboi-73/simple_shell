@@ -47,6 +47,11 @@ void free_all(char *buffer, char *p, char **arg);
 void freearg(char **arg);
 
 
+extern char **environ;
+
+
+int env(char *trick, char *input);
+
 
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
@@ -62,16 +67,10 @@ char *read_cmd(void);
 int execute_cmd(char *cmd);
 void execute_child(char **input);
 /*testing stuff*/
-char *serach_in_path(char *str);
-char **get_path();
-char *full_path(char *dir, char *cmd);
-void print_env(void);
-char *_getenv(char *name);
 
 
 
 
-void handl_ctrlc(int signal);
 
 
 char  **_tokenize(char *command, char *delim);
