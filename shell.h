@@ -56,7 +56,6 @@ int env(char *trick, char *input);
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
 void prompt(void);
-void print_env(void);
 /*testing stuff*/
 int is_command(char *filename);
 char *create_path(char *dir, char *filename);
@@ -67,8 +66,6 @@ char *read_cmd(void);
 int execute_cmd(char *cmd);
 void execute_child(char **input);
 /*testing stuff*/
-
-
 
 
 
