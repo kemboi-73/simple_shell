@@ -47,6 +47,11 @@ void free_all(char *buffer, char *p, char **arg);
 void freearg(char **arg);
 
 
+extern char **environ;
+
+
+int env(char *trick, char *input);
+
 
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
