@@ -55,7 +55,7 @@ int env(char *trick, char *input);
 
 char *build_path(char *dir, char *command);
 char *find_command(char *command);
-void prompt(void);
+
 /*testing stuff*/
 int is_command(char *filename);
 char *create_path(char *dir, char *filename);
@@ -66,7 +66,10 @@ char *read_cmd(void);
 int execute_cmd(char *cmd);
 void execute_child(char **input);
 /*testing stuff*/
-
+void print_prompt(void);
+int prompt(char **line);
+/*getline.c*/
+ssize_t mygetline(char **lineptr, size_t *n, FILE *stream);
 
 
 
