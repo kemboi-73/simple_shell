@@ -10,9 +10,8 @@
 void execmd(char **argv)
 {
 char *command = NULL, *actual_cmd = NULL;
-
-    if (argv)
-    {
+if (argv)
+{
 	command = argv[0];
 	actual_cmd = get_location(command);
 if (strcmp(command, "exit") == 0)
