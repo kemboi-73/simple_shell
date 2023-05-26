@@ -15,11 +15,11 @@ int main(int argc, char **argv)
 	(void)argc, (void)argv;
 	while (1)
 	{
-		printf("%s", prompt);
+		perror(prompt);
 		checkread = getline(&lineptr, &n, stdin);
 		if (checkread == -1)
 		{
-			printf("Error\n");
+			perror("Error\n");
 			return (-1); }
 		token = strtok(lineptr, delin);
 		while (token != NULL)
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 		args = malloc(sizeof(char *) * (sum_token + 1));
 		if (args == NULL)
 		{
-			printf("Allocation error\n");
+			perror("Allocation error\n");
 			return (-1); }
 		token = strtok(lineptr, delin);
 		for (i = 0; token != NULL; i++)
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 			args[i] = malloc(sizeof(char) * (strlen(token) + 1));
 			if (args[i] == NULL)
 			{
-				printf("Allocation error\n");
+				perror("Allocation error\n");
 				return (-1);
 	} strcpy(args[i], token);
 			token = strtok(NULL, delin);
