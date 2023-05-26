@@ -15,5 +15,7 @@ char *get_location(char *command);
 void execmd(char **argv);
 int stat(const char *pathname, struct stat *statbuf);
 
-
+/*proto of builtn.c*/
+int builtin_exit(void);
+int builtin_env(char **env);
 #endif
