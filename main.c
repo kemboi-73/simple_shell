@@ -1,53 +1,66 @@
 #include "shell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * main - code to pass betty
- * @a:  argument counts
- * @argv: arguments
+ * main - Entry point of the shell program
+ * @argc: Argument count
+ * @argv: Array of arguments
  *
- * Return: 0(success)
+ * Return: 0 (success)
  */
-
-int main(int a, char **argv)
+int main(int argc, char **argv)
 {
 	char *prompt = "(simple_shell)$ ";
-	char *lineptr = NULL, *copy_lineptr = NULL;
+	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t checkread;
 	const char *delin = " \n";
 	int sum_token = 0, i;
 	char *token;
+	char **args = NULL;
 
-	(void)a;
+	(void)argc;
+
 	while (1)
 	{
-	printf("%s", prompt);
-	checkread = getline(&lineptr, &n, stdin);
-	if (checkread == -1)
-	{
-		printf("Error\n");
-		return (-1); }
-	copy_lineptr = malloc(sizeof(char) * checkread);
-	if (copy_lineptr == NULL)
-	{
-		printf("allocation error");
-		return (-1); }
-	strcpy(copy_lineptr, lineptr);
-	token = strtok(lineptr, delin);
-	while (token != NULL)
-	{
-		sum_token++;
-		token = strtok(NULL, delin); }
-	sum_token++;
-	argv = malloc(sizeof(char *) * sum_token);
-	token = strtok(copy_lineptr, delin);
-	for (i = 0; token != NULL; i++)
-	{
-		argv[i] = malloc(sizeof(char) * strlen(token));
-		strcpy(argv[i], token);
-		token = strtok(NULL, delin); }
-	argv[i] = NULL;
-	execmd(argv); }
+		printf("%s", prompt);
+		checkread = getline(&lineptr, &n, stdin);
+		if (checkread == -1)
+		{
+			printf("Error\n");
+			return (-1);
+		}
+		token = strtok(lineptr, delin);
+		while (token != NULL)
+		{
+			sum_token++;
+			token = strtok(NULL, delin);
+		}
+		args = malloc(sizeof(char *) * (sum_token + 1));
+		if (args == NULL)
+		{
+			printf("Allocation error\n");
+			return (-1);
+		}
+		token = strtok(lineptr, delin);
+		for (i = 0; token != NULL; i++)
+		{
+			args[i] = malloc(sizeof(char) * (strlen(token) + 1));
+			if (args[i] == NULL)
+			{
+				printf("Allocation error\n");
+				return (-1);
+			} strcpy(args[i], token);
+			token = strtok(NULL, delin);
+		} args[i] = NULL;
+		execmd(args);
+		for (i = 0; i < sum_token; i++)
+			free(args[i]);
+		free(args);
+		sum_token = 0;
+	}
 	free(lineptr);
-	free(copy_lineptr);
-	return (0); }
+	return (0);
+}
