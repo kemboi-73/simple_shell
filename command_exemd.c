@@ -1,22 +1,22 @@
 #include "shell.h"
 
 /**
- * execmd - function to handle the command line
- * @argv: argument
+ * execmd - handles the command line
+ * @argv: the argument itself
  */
 void execmd(char **argv)
 {
-    char *command = NULL, *actual_cmd = NULL;
+	char *command = NULL, *actual_cmd = NULL;
 
-    if (argv)
-    {
-        command = argv[0];
-        actual_cmd = get_location(command);
+	if (argv)
+	{
+	command = argv[0];
+		actual_cmd = get_location(command);
 
-        if (execve(actual_cmd, argv, NULL) == -1)
-        {
-            printf("Oops! An error occurred.\n");
-        }
-    }
+if (execve(actual_cmd, argv, NULL) == -1)
+	{
+perror("Oops! An error occurred.\n");
+	}
+	}
 }
 
