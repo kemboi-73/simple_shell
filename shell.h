@@ -1,6 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
-
+#define BUFFER_SIZE 1024
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +16,5 @@ void execmd(char **argv);
 int stat(const char *pathname, struct stat *statbuf);
 
 /*proto of builtn.c*/
-int builtin_exit(void);
-int builtin_env(char **env);
+
 #endif
