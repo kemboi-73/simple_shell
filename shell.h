@@ -8,6 +8,7 @@
 #include <limits.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #define MAX_TOKENS 1024
@@ -16,6 +17,9 @@
 #define EXIT_CODE 1080
 /*protoypes of cd_command.c*/
 int cd(char *directory);
+int _myhelp(info_t *info);
+int _mycd(info_t *info);
+int _myexit(info_t *info)
 /*prototype of get_loc.c*/
 char *get_location(char *command);
 /*protoype of command_exemd.c*/
@@ -27,14 +31,14 @@ char *_strchr(char *s, char c);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 /*pro*/
-char *_getenv(const char *name);
+/*char *_getenv(const char *name);*/
 void inter_mode(void);
 /*pro comment.c*/
 void handlecomment(char *string);
 /*pro of exxit.c*/
 int exitbuilt(char **a);
 void ffree(char **a, char *istr);
-/*pro of getline.c*/
+/*pro of env.c*/
 
 #endif
 
