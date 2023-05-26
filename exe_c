@@ -1,2 +1,1 @@
-echo "/bin/ls /test_hbtn
-exit"
+echo "/bin/ls /test_hbtn" | ./hsh
