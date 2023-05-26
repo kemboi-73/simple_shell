@@ -14,4 +14,6 @@ char *get_location(char *command);
 /*protoype of command_exemd.c*/
 void execmd(char **argv);
 int stat(const char *pathname, struct stat *statbuf);
+
+
 #endif
