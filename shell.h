@@ -13,6 +13,7 @@
 #define MAX_TOKENS 1024
 #define MAX_TOKEN_LENGTH 1024
 #define MAX_BUFFER 100
+#define EXIT_CODE 1080
 /*protoypes of cd_command.c*/
 int cd(char *directory);
 /*prototype of get_loc.c*/
@@ -31,5 +32,7 @@ void inter_mode(void);
 /*pro comment.c*/
 void handlecomment(char *string);
 /*pro of bltin.c*/
-
+int exitbuilt(char **a);
+void ffree(char **a, char *istr);
 #endif
+
