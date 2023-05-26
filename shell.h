@@ -17,9 +17,6 @@
 #define EXIT_CODE 1080
 /*protoypes of cd_command.c*/
 int cd(char *directory);
-int _myhelp(info_t *info);
-int _mycd(info_t *info);
-int _myexit(info_t *info)
 /*prototype of get_loc.c*/
 char *get_location(char *command);
 /*protoype of command_exemd.c*/
