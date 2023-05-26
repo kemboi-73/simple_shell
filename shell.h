@@ -31,8 +31,10 @@ char *_getenv(const char *name);
 void inter_mode(void);
 /*pro comment.c*/
 void handlecomment(char *string);
-/*pro of bltin.c*/
+/*pro of exxit.c*/
 int exitbuilt(char **a);
 void ffree(char **a, char *istr);
+/*pro of getline.c*/
+
 #endif
 
