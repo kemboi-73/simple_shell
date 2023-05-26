@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * handleComment - handle if there is any comments in the
+ * handlecomment - handle if there is any comments in the
  * given command.
  * @string: the string that holds the command.
 */

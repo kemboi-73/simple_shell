@@ -28,7 +28,6 @@ int stat(const char *pathname, struct stat *statbuf);
 char *_strchr(char *s, char c);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
-/*pro*/
 /*char *_getenv(const char *name);*/
 void inter_mode(void);
 /*pro comment.c*/
@@ -40,11 +39,8 @@ void handlecomment(char *string);
 /*pro of exxit.c*/
 int exitbuilt(char **a);
 void ffree(char **a, char *istr);
-<<<<<<< HEAD
 /*pro of env.c*/
 
-=======
 /*pro of getline.c*/
->>>>>>> 447d75ec97aa49144b2044befe3186ca51f89e66
 #endif
 
