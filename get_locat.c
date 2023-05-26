@@ -49,7 +49,7 @@ char *get_location(char *cmd)
 			free(file_path);
 			path_tkn = strtok(NULL, ":"); }
 	} free(copy_path);
-if (stat(cmd, &buffer) == 0)
+	if (stat(cmd, &buffer) == 0)
 	return (cmd);
 	return (NULL);
 }
