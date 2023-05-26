@@ -15,6 +15,7 @@
 #define MAX_TOKEN_LENGTH 1024
 #define MAX_BUFFER 100
 #define EXIT_CODE 1080
+
 /*protoypes of cd_command.c*/
 int cd(char *directory);
 /*prototype of get_loc.c*/
@@ -31,11 +32,19 @@ char *_strncpy(char *dest, char *src, int n);
 /*char *_getenv(const char *name);*/
 void inter_mode(void);
 /*pro comment.c*/
+void handleComment(char *string);
+
+/* new */
+int execute_command(char **args);
 void handlecomment(char *string);
 /*pro of exxit.c*/
 int exitbuilt(char **a);
 void ffree(char **a, char *istr);
+<<<<<<< HEAD
 /*pro of env.c*/
 
+=======
+/*pro of getline.c*/
+>>>>>>> 447d75ec97aa49144b2044befe3186ca51f89e66
 #endif
 
