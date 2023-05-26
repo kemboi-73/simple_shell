@@ -24,4 +24,7 @@ char *_getenv(const char *name);
 void inter_mode(void);
 /*pro comment.c*/
 void handleComment(char *string);
+
+/* new */
+int execute_command(char **args);
 #endif
