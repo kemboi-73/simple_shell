@@ -13,13 +13,14 @@ void execmd(char **argv)
         command = argv[0];
         actual_cmd = get_location(command);
 
-        if (strcmp(command, "exit") == 0) {
+        if (strcmp(command, "exit") == 0)
+        {
             exit(0);
         }
 
         if (execve(actual_cmd, argv, NULL) == -1)
         {
-            perror("Error:");
+            perror("Oops! An error occurred.\n");
         }
     }
 }
