@@ -4,7 +4,7 @@
  * given command.
  * @string: the string that holds the command.
 */
-void handleComment(char *string)
+void handlecomment(char *string)
 {
 	int i = 0;
 

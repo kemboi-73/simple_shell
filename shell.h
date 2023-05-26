@@ -5,8 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdarg.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#define MAX_TOKENS 1024
+#define MAX_TOKEN_LENGTH 1024
+#define MAX_BUFFER 100
 /*protoypes of cd_command.c*/
 int cd(char *directory);
 /*prototype of get_loc.c*/
@@ -23,5 +29,7 @@ char *_strncpy(char *dest, char *src, int n);
 char *_getenv(const char *name);
 void inter_mode(void);
 /*pro comment.c*/
-void handleComment(char *string);
+void handlecomment(char *string);
+/*pro of bltin.c*/
+
 #endif
