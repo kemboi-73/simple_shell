@@ -1,0 +1,1 @@
+echo "/bin/echo #This is a comment" | ./hsh
