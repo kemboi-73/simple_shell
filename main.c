@@ -7,7 +7,7 @@
  */
 int main(int a, char **argv)
 {
-	char *prompt = "(simple_shell)$ ";
+	char *prompt = "(Sshell)$ ";
 	char *lineptr = NULL, *copy_lineptr = NULL;
 	size_t n = 0;
 	ssize_t checkread;
@@ -23,7 +23,7 @@ if (checkread == -1)
 {
 	printf("Error\n");
 	return (-1); }
-	copy_lineptr = malloc(sizeof(char) * checkread);
+	copy_lineptr = malloc(sizeof(char) * (strlen(lineptr) + 1));
 	if (copy_lineptr == NULL)
 {
 	printf("allocation error");
