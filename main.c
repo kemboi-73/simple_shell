@@ -1,34 +1,53 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
 
-char *program_name;
+/**
+ * main - code to pass betty
+ * @a:  argument counts
+ * @argv: arguments
+ *
+ * Return: 0(success)
+ */
 
-int main(int argc, char **argv)
+int main(int a, char **argv)
 {
-    char *line = NULL, **args;
-    int exit_status, status;
-    (void)argc;
-    program_name = argv[0];
+	char *prompt = "(simple_shell)$ ";
+	char *lineptr = NULL, *copy_lineptr = NULL;
+	size_t n = 0;
+	ssize_t checkread;
+	const char *delin = " \n";
+	int sum_token = 0, i;
+	char *token;
 
-    while (1)
-    {
-        print_prompt();
-        if (prompt(&line) == -1)
-            exit(0);
-
-        args = split_line(line);
-        if (args == NULL || args[0] == NULL)
-        {
-            free(line);
-            continue;
-        }
-
-        free_args(args);
-        free(line);
-        line = NULL;
-    }
-
-    return 0;
-}
-
+	(void)a;
+	while (1)
+	{
+	printf("%s", prompt);
+	checkread = getline(&lineptr, &n, stdin);
+	if (checkread == -1)
+	{
+		printf("Error\n");
+		return (-1); }
+	copy_lineptr = malloc(sizeof(char) * checkread);
+	if (copy_lineptr == NULL)
+	{
+		printf("allocation error");
+		return (-1); }
+	strcpy(copy_lineptr, lineptr);
+	token = strtok(lineptr, delin);
+	while (token != NULL)
+	{
+		sum_token++;
+		token = strtok(NULL, delin); }
+	sum_token++;
+	argv = malloc(sizeof(char *) * sum_token);
+	token = strtok(copy_lineptr, delin);
+	for (i = 0; token != NULL; i++)
+	{
+		argv[i] = malloc(sizeof(char) * strlen(token));
+		strcpy(argv[i], token);
+		token = strtok(NULL, delin); }
+	argv[i] = NULL;
+	execmd(argv); }
+	free(lineptr);
+	free(copy_lineptr);
+	return (0); }
