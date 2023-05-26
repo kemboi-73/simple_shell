@@ -22,5 +22,6 @@ char *_strncpy(char *dest, char *src, int n);
 /*pro*/
 char *_getenv(const char *name);
 void inter_mode(void);
-
+/*pro comment.c*/
+void handleComment(char *string);
 #endif
