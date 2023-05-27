@@ -52,6 +52,6 @@ int builtin_env(char **env);
 
 int execute_exit(char **args);
 
-int _atoi(const char *str);
+
 #endif
 
