@@ -40,9 +40,6 @@ void handlecomment(char *string);
 int exitbuilt(char **a);
 void ffree(char **a, char *istr);
 /*pro of exit*/
-int builtin_env(char **env);
-int builtin_exit(void);
-size_t _strlen(const char *s);
-
+char *get_line(void);
 #endif
 
