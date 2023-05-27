@@ -45,6 +45,6 @@ token = strtok(copy_lineptr, delin);
         strcpy(argv[i], token);
         token = strtok(NULL, delin); }
         argv[i] = NULL;
-        execmd(argv); }
+        exemd(argv); }
         free(lineptr), free(copy_lineptr);
         return (0); }

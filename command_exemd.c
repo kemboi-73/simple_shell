@@ -1,28 +1,31 @@
 #include "shell.h"
 
 /**
- * execmd - function to handle the command line
+ * exemd - function to handle the command line
  * @argv: argument
 */
-void execmd(char **argv)
+void exemd(char **argv)
 {
-    char *command = NULL, *actual_cmd = NULL;
+	char *command = NULL, *actual_cmd = NULL;
+	pid_t pid;
 
-    if (argv)
-    {
-        command = argv[0];
-        actual_cmd = get_location(command);
-
-        if (strcmp(command, "exit") == 0)
-        {
-            exit(0);
-        }
-
-        if (execve(actual_cmd, argv, NULL) == -1)
-        {
-            perror("Oops! An error occurred.\n");
-
-        }
-    }
+	if (strcmp(command, "exit") == 0)
+			exit(0);
+	if (argv)
+{
+	command = argv[0];
+	actual_cmd = get_location(command);
+		pid = fork();
+		if (pid < 0)
+		write(2, "fork", 4);
+	else if (pid == 0)
+{
+if (execve(actual_cmd, argv, NULL) == -1)
+{
+	perror("Oops! An error occurred.\n");
+	exit(1);
+	}
+exit(0);
+	}
 }
-
+}

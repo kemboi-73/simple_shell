@@ -21,7 +21,7 @@ int cd(char *directory);
 /*prototype of get_loc.c*/
 char *get_location(char *command);
 /*protoype of command_exemd.c*/
-void execmd(char **argv);
+void exemd(char **argv);
 int stat(const char *pathname, struct stat *statbuf);
 
 /*proto of getline.c*/
