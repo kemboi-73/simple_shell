@@ -44,5 +44,9 @@ char *get_line(void);
 
 int builtin_exit(void);
 int builtin_env(char **env);
+
+
+int _strcmp(const char *s1, const char *s2);
+int is_in_str(const char *str, char c);
 #endif
 
