@@ -6,7 +6,8 @@
 */
 void exemd(char **argv)
 {
-	char *command = NULL, *actual_cmd = NULL;
+char *command = argv[0];
+char *actual_cmd = NULL;
 	pid_t pid;
 
 	if (strcmp(command, "exit") == 0)
@@ -15,10 +16,12 @@ void exemd(char **argv)
 {
 	command = argv[0];
 	actual_cmd = get_location(command);
+
 		pid = fork();
+
 		if (pid < 0)
 		write(2, "fork", 4);
-	else if (pid == 0)
+else if (pid == 0)
 {
 if (execve(actual_cmd, argv, NULL) == -1)
 {
