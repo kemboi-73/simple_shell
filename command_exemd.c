@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * exemd - function to handle the command line
- * @argv: argument
+ * exemdd - function to handle the command line
+ * @argv: the argument itself
  */
-void exemd(char **argv)
+void exemdd(char **argv)
 {
 	char *command = NULL, *actual_cmd = NULL;
 

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * cd - Change the current working directory.
+ * cd - Changes the current working directory.
  * @directory: The directory to change to
  * Return: On success, returns 0. On failure, returns 1
  */

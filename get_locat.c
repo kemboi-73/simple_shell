@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * *get_location - gets the path to the command passed as argument
+ * get_location - gets the path to the command passed as argument
  * @cmd: command whose location is required
  *
  * Return: command path, then NULL if no path is found
