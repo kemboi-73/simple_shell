@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * the_coment -removes comments from the 
+ * the_coment -removes comments from the
  * @in: the strings input
  * Return: comments thad does not have input
  */
