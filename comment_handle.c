@@ -1,29 +1,29 @@
 #include "shell.h"
 /**
- * handlecomment - handle if there is any comments in the
- * given command.
- * @string: the string that holds the command.
-*/
-void handlecomment(char *string)
+ * rem_cmnt - this function removes comments from the input
+ * @in: input string
+ * Return: input without comments
+ */
+char *rem_cmnt(char *in)
 {
-	int i = 0;
+	int i, j;
+	char *out = in;
 
-	if (string[0] == '#')
+	for (i = 0, j = 0; in[i] != '\0'; i++)
 	{
-		string[0] = '\0';
-	}
-	while (string[i] != '\0')
-	{
-		if (string[i] == ' ')
+		if (in[i] == '#' && (i == 0 || in[i - 1] == '\n' ||
+							 in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';'))
 		{
-			i++;
-			if (string[i] == '#')
-			{
-				string[i] = '\0';
-				break;
-			}
+			while (in[i] != '\n' && in[i] != '\0')
+				i++;
 		}
-		if (string[i] != '\0')
-			i++;
+		else
+		{
+			out[j++] = in[i];
+		}
 	}
+
+	out[j] = '\0';
+
+	return (out);
 }

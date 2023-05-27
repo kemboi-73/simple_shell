@@ -49,9 +49,9 @@ int is_in_str(const char *str, char c);
 /*hh*/
 int builtin_exit(void);
 int builtin_env(char **env);
-
 int execute_exit(char **args);
 
 
+char *rem_cmnt(char *in);
 #endif
 
