@@ -38,7 +38,7 @@ if (checkread == -1)
         sum_token++;
         argv = malloc(sizeof(char *) * sum_token);
 token = strtok(copy_lineptr, delin);
-        for (i = 0; token != NULL; i++)
+	for (i = 0; (token != NULL) && !(strcmp(token, "#") == 0); i++)
 {
         strcpy(copy_lineptr, lineptr);
         argv[i] = malloc(sizeof(char) * (strlen(token) + 1));
