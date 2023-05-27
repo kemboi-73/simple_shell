@@ -17,7 +17,9 @@ int main(int a, char **argv)
 	(void)a;
 while (1)
 {
-printf("%s", prompt);
+	if (isatty(fileno(stdin)))
+		printf("%s", prompt);
+/*printf("%s", prompt);*/
 checkread = getline(&lineptr, &n, stdin);
 if (checkread == -1)
 {
