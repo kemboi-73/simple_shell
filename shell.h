@@ -41,5 +41,8 @@ int exitbuilt(char **a);
 void ffree(char **a, char *istr);
 /*pro of exit*/
 char *get_line(void);
+
+int builtin_exit(void);
+int builtin_env(char **env);
 #endif
 
