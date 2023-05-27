@@ -46,10 +46,12 @@ char *get_line(void);
 int _strcmp(const char *s1, const char *s2);
 int is_in_str(const char *str, char c);
 
-
-
-
 /*hh*/
+int builtin_exit(void);
+int builtin_env(char **env);
 
+int execute_exit(char **args);
+
+int _atoi(const char *str);
 #endif
 
