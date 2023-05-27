@@ -47,7 +47,12 @@ token = strtok(copy_lineptr, delin);
 	strcpy(argv[i], token);
 	token = strtok(NULL, delin); }
 	argv[i] = NULL;
+	if (strcmp(argv[0], "exit") == 0)
+{
+	if (isatty(fileno(stdin)))
+		fprintf(stderr, "\n");
+	exit(0);
 	execmd(argv); }
 	free(lineptr), free(copy_lineptr);
-	return (0); }
-
+	return (0);
+	}}
