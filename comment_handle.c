@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * rem_cmnt - this function removes comments from the input
- * @in: input string
- * Return: input without comments
+ * the_coment -removes comments from the 
+ * @in: the strings input
+ * Return: comments thad does not have input
  */
-char *rem_cmnt(char *in)
+char *the_coment(char *in)
 {
 	int i, j;
 	char *out = in;

@@ -23,7 +23,7 @@ char *get_location(char *command);
 /*protoype of command_exemd.c*/
 void exemdd(char **argv);
 int stat(const char *pathname, struct stat *statbuf);
-
+char *the_coment(char *in);
 /*proto of getline.c*/
 char *_strchr(char *s, char c);
 char *_strncat(char *dest, char *src, int n);
@@ -52,6 +52,6 @@ int builtin_env(char **env);
 int execute_exit(char **args);
 
 
-char *rem_cmnt(char *in);
+
 #endif
 
